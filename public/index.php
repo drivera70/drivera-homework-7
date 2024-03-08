@@ -17,3 +17,17 @@ $url = $_SERVER["REQUEST_URI"];
 //if it is "/posts" return an array of posts via the post controller
 //if it is "/" return the homepage view from the main controller
 //if it is something else return a 404 view from the main controller
+
+$posts = new PostController();
+$main = new MainController();
+
+switch($url){
+    case: "/posts":
+        $posts->getAllPosts();
+        break;
+    case: "/":
+        $main->homepage();
+        break;
+    default:
+        $main->notFound();
+};
