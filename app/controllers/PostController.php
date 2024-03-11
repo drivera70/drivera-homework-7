@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 use app\core\Controller;
+use app\models\Post;
+
 class PostController extends Controller
 {
 //todo make a method to return some posts, post objects should come from the post model class

@@ -22,12 +22,16 @@ $posts = new PostController();
 $main = new MainController();
 
 switch($url){
-    case: "/posts":
-        $posts->getAllPosts();
+    case "/posts":
+        $posts->index();
         break;
-    case: "/":
+    case "/":
         $main->homepage();
         break;
     default:
         $main->notFound();
 };
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
