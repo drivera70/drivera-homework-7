@@ -1,0 +1,49 @@
+What does it mean to escape data? How does escaping data help us avoid malicious code?
+
+Escaping data means adding and removing characters from user input to ensure that it does not have a malicious effect on our code. By adding and removing certain characters from user input, we can remove any of the harmful effects that the input can have on the code. For example, to escape harmful HTML code, we replace ‘<’ and ‘>’ with a different set of characters so that user input cannot create tags for elements.  
+
+
+Please read through:
+A. What is REST? What is meant by Statelessness?
+
+REST stands for Representational State Transfer, and it is an architectural style that makes it easier for computer systems to communicate with each other on the web by establishing standards. RESTful systems are stateless, and separate the concerns of the client and the server. Statelessness means that the server does not need to know anything about the state that the client is in to operate, and the client does need to know anything about the state the server is in to operate either. They can both understand any message received without having viewed previous messages. Statelessness is enforced through resources.
+
+
+B. What is a resource?
+
+Resources describe any object, document, or thing that you may need to store or send to other services.
+
+
+C. Look at the section on Path design: In a RESTful architecture paradigm what would be the proper way to create a path for: (provide URL and HTTP method):
+
+
+(i.)  Getting a list of users?
+
+GET http://localhost:8888/users
+Accept: application/json
+
+
+(ii.) Getting a particular user?
+
+GET http://localhost:8888/users/id
+Accept: application/json
+
+
+(iii.) Saving a user?
+
+POST http://localhost:8888/users
+Body:
+{
+	“id” =  “3”
+	“name” = “Kratos”
+}
+
+What is a Cookie?
+
+A cookie is a text file that a website can tell a browser to store data about the user in. Cookies are tied to one browser. Each time the browser requests another page from that site, the browser sends the data in the cookie back to the server. 
+
+
+
+What is a Session?
+
+Sessions store information about a user and their preferences on the server. They are called sessions because they only store the data for the duration of a single visit to the site. 

@@ -3,10 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Posts</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     </head>
     <body>
 
-        <div>
+        <div id="posts-div">
             <h3>posts</h3>
             {% for key, value in posts %}
                 id : {{ value.id }}
@@ -16,6 +17,71 @@
             {% endfor %}
         </div>
 
+        <br>
+
+        <div id="data-container"></div>
+
+        <br>
+
+        <form id="form-id">
+            <div>
+                <label for="id-input">ID</label>
+                <input type="text" id="id-input" name="id">
+                <br>
+                <label for="username-input">Username</label>
+                <input type="text" id="username-input" name="username" autocomplete="on">
+                <br>
+                <label for="content-input">Post Content</label>
+                <input type="text" id="content-input" name="content">
+            </div>
+            <div>
+                <input type="submit" value="submit"></br>
+            </div>
+        </form>
+
+        
+
+        <script>
+
+        $(document).ready(function() {
+
+        
+
+            $('#form-id').on('submit', function(e) {
+                e.preventDefault();
+                var id = $('#id-input').val();
+                var username = $('#username-input').val();
+                var content = $('#content-input').val();
+
+                const data = {
+                    id: id,
+                    username: username,
+                    content: content,
+                }
+
+                $.ajax({
+                    url: 'http://localhost:8888/posts',
+                    type: "POST",
+                    data: data,
+                    dataType: "json",
+                    success: function (data) {
+                        console.log("it worked");
+                        $('#data-container').html(
+                            `<div>
+                                <h4>most recent added post</h4>
+                                <p>id: ${data.id}, username: ${data.username}, content: ${data.content}</p>
+                            </div>`
+                        )
+                    },
+                    error: function (data) {
+                        console.log("it didnt work :(");
+                    }
+                });
+            });
+
+            })
+
+        </script>
 
     </body>
 </html>
